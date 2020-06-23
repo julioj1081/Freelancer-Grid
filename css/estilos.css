@@ -1,0 +1,129 @@
+:root{
+  --fuentePrincipal: 'Gothic Al', sans-serif;
+  --fuenteSecundaria: 'Oswald', sans-serif;
+  --primario: #f1a94e;
+  --secundario: #44b3c2;
+  --claro: #ffffff;
+}
+html{
+  box-sizing: border-box;
+}
+body{
+  font-family: var(--fuentePrincipal);
+}
+.contenedor{
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+img{
+  max-width: 100%;
+}
+h1{
+  font-size: 2.8rem;
+}
+h2{
+  font-size: 1.8rem;
+}
+h3{
+  font-size: 2.4rem;
+}
+p{
+  font-family: var(--fuentePrincipal);
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+/*HERO*/
+.hero{
+  background-image: url(../img/fondo.jpg);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero .contenedor{
+  display: grid;
+  align-items: center;
+  height: 100vh;
+}
+.hero .contenido{
+  text-align: center;
+    color:var(--claro);
+}
+.titulo{
+  margin: 0;
+}
+.subtitulo{
+  font-size: 1.2rem;
+}
+/*CREACION DE LOS SERVICIOS*/
+.servicios{
+  text-align: center;
+  margin-top: 3rem;
+}
+.servicios h2{
+  margin-bottom: .5rem;
+}
+/*CREACION DE LA LINEA*/
+.servicios h2::after{
+  height: 0.2rem;
+  width: 15rem;
+  background-color: var(--primario);
+  content: '';
+  display: block;
+  margin: 1rem auto 0 auto;
+}
+/*TAMAÑO DE LOS ICONOS*/
+.servicios i{
+  font-size: 3rem;
+  color: var(--secundario);
+}
+/*En modo tablet y escritorio*/
+@media (min-width:768px){
+  .servicios{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 2rem;
+  }
+}
+/*PORTAFOLIO LISTADO*/
+.elemento{
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #5e5e5e;
+  transition: all .6s ease-in-out;
+}
+.elemento:hover{
+  margin-bottom: 4rem;
+  border-bottom: 1.2px solid var(--primario);
+}
+@media (min-width:768px){
+  .listado{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    /*COLO UNO ES MAS GRANDE QUE LOS OTROS USAMOS ESTO PARA QUE HABARQUE EL MAXIMO EN ROW*/
+    grid-auto-rows: max-content;
+  }
+  /*EN ESTE CASO LA IMAGEN 3 ES LA MAS LARGA Y HACE QUE TODOS LAS IMAGENES 1 Y 2 SEAN DE LA MISMA ALTURA EN EL GRID*/
+  .elemento:nth-child(3){
+    /*POR LO TANTO LO EXPANDIMOS*/
+    grid-row-end: span 2;
+  }
+}
+
+/*FOOTER*/
+.footer{
+  background-image: url(../img/contacto.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:var(--claro);
+  padding: 1.2rem 0;
+}
+.footer .widget h3{
+  color:var(--primario);
+}
+@media (min-width:768px){
+  .footer .contenedor{
+    display: grid;
+    grid-template-columns: repeat(2, 30%) auto;
+  }
+}
